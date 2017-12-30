@@ -1,0 +1,55 @@
+{
+  "settings": {
+    "number_of_shards": 10,
+    "index": {
+      "analysis": {
+        "filter": {
+          "edge_ngram_filter": {
+            "type": "edge_ngram",
+            "min_gram": "1",
+            "max_gram": "20"
+          }
+        },
+        "analyzer": {
+          "edge_ngram_analyzer": {
+            "filter": [
+              "lowercase",
+              "edge_ngram_filter"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
+          }
+        }
+      }
+    }
+  },
+  "mappings": {
+    "query": {
+      "_routing": { "required": true },
+      "properties": {
+        "accountId": {
+          "type": "keyword"
+        },
+        "query": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            },
+            "ngrams": {
+              "type": "text",
+              "index_options": "offsets",
+              "analyzer": "edge_ngram_analyzer",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "date": {
+          "type": "date",
+          "format": "epoch_second"
+        }
+      }
+    }
+  }
+}

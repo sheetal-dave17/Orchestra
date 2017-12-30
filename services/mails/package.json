@@ -1,0 +1,26 @@
+{
+  "name": "deepframe-files-consumer-service",
+  "version": "1.0.0",
+  "description": "Files (Attachment ) Rabbit MQ Consumer and Rest API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Parth Shah",
+  "license": "ISC",
+  "dependencies": {
+    "amqp": "^0.2.6",
+    "amqplib": "^0.5.1",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "he": "^1.1.1",
+    "html-to-text": "https://github.com/iderets/node-html-to-text/tarball/master",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.5",
+    "node-vault": "^0.6.1",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
+    "sanitize-caja": "^0.1.4"
+  }
+}

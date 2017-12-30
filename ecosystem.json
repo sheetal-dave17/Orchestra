@@ -1,0 +1,21 @@
+{
+  "apps" : [{
+    "name": "orchestra-mails",
+    "script": "./services/mails/app.js",
+    "instances" : 2,
+    "exec_mode" : "cluster",
+    "watch": true
+  }, {
+    "name": "orchestra-accounts",
+    "script": "./services/accounts/app.js",
+    "watch": true
+  }, {
+    "name": "orchestra-notifications",
+    "script": "./services/notifications/app.js",
+    "watch": true
+  }, {
+    "name": "orchestra-search",
+    "script": "./services/search/app.js",
+    "watch": true
+  }]
+}

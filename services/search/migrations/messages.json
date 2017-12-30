@@ -1,0 +1,228 @@
+{
+  "settings": {
+    "number_of_shards": 10,
+    "index": {
+      "analysis": {
+        "filter": {
+          "edge_ngram_filter": {
+            "type": "edge_ngram",
+            "min_gram": "1",
+            "max_gram": "20"
+          }
+        },
+        "analyzer": {
+          "edge_ngram_analyzer": {
+            "filter": [
+              "lowercase",
+              "edge_ngram_filter"
+            ],
+            "type": "custom",
+            "tokenizer": "standard"
+          }
+        }
+      }
+    }
+  },
+  "mappings": {
+    "message": {
+      "_routing": { "required": true },
+      "properties": {
+        "accountId": {
+          "type": "keyword"
+        },
+        "messageId": {
+          "type": "keyword"
+        },
+        "bodyText": {
+          "type": "text",
+          "fields": {
+            "ngrams": {
+              "type": "text",
+              "index_options": "offsets",
+              "analyzer": "edge_ngram_analyzer",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "snippet": {
+          "type": "text",
+          "fields": {
+            "ngrams": {
+              "type": "text",
+              "index_options": "offsets",
+              "analyzer": "edge_ngram_analyzer",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "date": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_second"
+        },
+        "subject": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            },
+            "ngrams": {
+              "type": "text",
+              "index_options": "offsets",
+              "analyzer": "edge_ngram_analyzer",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "labels": {
+          "type": "keyword"
+        },
+        "topics": {
+          "type": "keyword"
+        },
+        "files": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            },
+            "ngrams": {
+              "type": "text",
+              "analyzer": "edge_ngram_analyzer",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "from": {
+          "properties": {
+            "email": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "to": {
+          "properties": {
+            "email": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "cc": {
+          "properties": {
+            "email": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "bcc": {
+          "properties": {
+            "email": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                },
+                "ngrams": {
+                  "type": "text",
+                  "analyzer": "edge_ngram_analyzer",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

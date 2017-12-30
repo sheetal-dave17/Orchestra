@@ -1,0 +1,22 @@
+{
+  "name": "orchestra-search",
+  "version": "1.0.0",
+  "description": "MicroService responsible for search",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ilya Derets",
+  "repository": "https://github.com/deepframe/orchestra",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "elasticsearch": "^13.2.0",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "md5": "2.2.1",
+    "node-vault": "^0.7.1"
+  }
+}
